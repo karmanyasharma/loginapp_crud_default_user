@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List User</title>
+</head>
+<body>
+    
+    <h1>Detail of User{{ user.id }}</h1>
+    <p>Below is the list of one registered users:</p>
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>User Id </th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.last_name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.username }}</td>
+                <td>
+                    <a href='{% url "listUsers" %}'>Back to List</a>
+                    <a href='{% url "editUser" user.id %}'>Edit</a>
+                    <a href='{% url "deleteUser" user.id %}'>Delete</a>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>

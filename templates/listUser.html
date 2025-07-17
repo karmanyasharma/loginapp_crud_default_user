@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List User</title>
+</head>
+<body>
+    <h1>List of Users</h1>
+    <p>Below is the list of all registered users:</p>
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>User Id </th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in users %}
+            <tr>
+                <td>{{ u.id }}</td>
+                <td>{{ u.first_name }}</td>
+                <td>{{ u.last_name }}</td>
+                <td>{{ u.email }}</td>
+                <td>{{ u.username }}</td>
+                <td>
+                    <a href="{% url 'detail' u.id %}">Details</a>
+                    <a href="{% url 'editUser' u.id %}">Edit</a>
+                    <a href="{% url 'deleteUser' u.id %}" onClick="return confirm('Are you sure you want to delete this User? ')" >Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome {{request.user}}</h1>
+    <a href ="{% url 'logout' %}">Logout</a><br>
+    <a href ="{% url 'addUsers' %}">Add User</a><br>
+    <a href="{% url 'about' %}">About</a><br>
+    <a href="{% url 'listUsers' %}">List Users</a>
+
+</body>
+</html>
